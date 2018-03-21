@@ -45,7 +45,7 @@ module.exports = function nexkey(options) {
   }
 
 
-  const revokeKey = function(options) {
+  const revokeKey = async function(options) {
     const { phone, email, lockId } = options
 
     const  url = ENDPOINT + '/rest/functions/revokeKey'
