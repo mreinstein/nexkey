@@ -1,0 +1,25 @@
+{
+  "name": "nexkey",
+  "version": "0.0.1",
+  "description": "javascript sdk for nexkey's awesome lock product",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mreinstein/nexkey.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mreinstein/nexkey/issues"
+  },
+  "homepage": "https://github.com/mreinstein/nexkey#readme",
+  "engines": {
+    "node": ">=6"
+  },
+  "dependencies": {
+    "node-fetch": "^2.1.1"
+  }
+}
