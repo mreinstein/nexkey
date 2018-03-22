@@ -1,6 +1,6 @@
 {
   "name": "nexkey",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "javascript sdk for nexkey's awesome lock product",
   "main": "index.js",
   "scripts": {
