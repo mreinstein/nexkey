@@ -22,3 +22,5 @@ const result = await client.sendKey({ phone, email })
 
 ```
 
+
+see https://nexkey-beta.herokuapp.com/documentation for full details on the endpoints available.

@@ -2,10 +2,6 @@
 
 const fetch = require('node-fetch')
 
-
-// api docs
-// https://nexkey-beta.herokuapp.com/documentation
-
 // dashboard
 // https://nk-web-beta.herokuapp.com/apikeys
 
