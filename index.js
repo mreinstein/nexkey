@@ -2,66 +2,37 @@
 
 const fetch = require('node-fetch')
 
-
-// api docs
-// https://nexkey-beta.herokuapp.com/documentation
-
 // dashboard
 // https://nk-web-beta.herokuapp.com/apikeys
 
 // NOTE: if phone and email are listed for 2 users, prioritizes phone number?
 //       needs verification from nexkey
 
-const APINumber = '2'
-const ENDPOINT = 'https://nexkey-beta.herokuapp.com'
-
-
 module.exports = function nexkey(options) {
   const { NEXKEY_API_SECRET, NEXKEY_API_KEY } = options
 
-  const headers = {
-    'Nexkey-Api-Secret': NEXKEY_API_SECRET,
-    'Nexkey-Api-Key': NEXKEY_API_KEY,
-    'Content-Type': 'application/json',
+
+  const signIn = async function(options) {
+    const { userIdentifier, password } = options
+    return _post('signIn', { userIdentifier, password })
   }
+
+
+  // @return Array Retrieve keys for a target lock.
+  const getLockUsers = async function(lockId) {
+    return _post('getLockUsers', { lockId })
+  }
+
 
   const sendKey = async function(options) {
     const { phone, email, lockId } = options
-
-    const url = ENDPOINT + '/rest/functions/sendKey'
-
-    const result = await fetch(url, {
-      method: 'POST',
-      body: JSON.stringify({
-        APINumber,
-        email,
-        phone,
-        lockId
-      }),
-      headers
-    })
-
-    return result.json()
+    return _post('sendKey', { email, phone, lockId })
   }
 
 
-  const revokeKey = function(options) {
+  const revokeKey = async function(options) {
     const { phone, email, lockId } = options
-
-    const  url = ENDPOINT + '/rest/functions/revokeKey'
-
-    const result = await fetch(url, {
-      method: 'POST',
-      body: JSON.stringify({
-        APINumber,
-        email,
-        phone,
-        lockId
-      }),
-      headers
-    })
-
-    return result.json()
+    return _post('revokeKey', { email, phone, lockId })
   }
 
 
@@ -69,20 +40,27 @@ module.exports = function nexkey(options) {
   // NOTE: passing empty phone and email returns all keys for the API key
   const getUserKeys = async function(options) {
     const { phone, email } = options
+    return _post('getUserKeys', { email, phone })
+  }
 
-    const url = ENDPOINT + '/rest/functions/getUserKeys'
+
+  // @return Promise resolves to a javascript object
+  const _post = async function(fnName, body) {
+    const url = 'https://nexkey-beta.herokuapp.com/rest/functions/' + fnName
+    body.APINumber = '2'
+
     const result = await fetch(url, {
       method: 'POST',
-      body: JSON.stringify({
-        APINumber,
-        email,
-        phone
-      }),
-      headers
+      body: JSON.stringify(body),
+      headers: {
+        'Nexkey-Api-Secret': NEXKEY_API_SECRET,
+        'Nexkey-Api-Key': NEXKEY_API_KEY,
+        'Content-Type': 'application/json',
+      }
     })
-
     return result.json()
   }
 
-  return { sendKey, revokeKey, getUserKeys }
+
+  return { signIn, getLockUsers, sendKey, revokeKey, getUserKeys }
 }

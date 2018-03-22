@@ -1,10 +1,10 @@
 {
   "name": "nexkey",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "javascript sdk for nexkey's awesome lock product",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tap test/"
   },
   "repository": {
     "type": "git",
@@ -17,9 +17,13 @@
   },
   "homepage": "https://github.com/mreinstein/nexkey#readme",
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "dependencies": {
     "node-fetch": "^2.1.1"
+  },
+  "devDependencies": {
+    "proxyquire": "^2.0.1",
+    "tap": "^11.1.3"
   }
 }
