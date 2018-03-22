@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/mreinstein/nexkey#readme",
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "dependencies": {
     "node-fetch": "^2.1.1"
