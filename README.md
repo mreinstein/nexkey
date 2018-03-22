@@ -1,4 +1,7 @@
 # nexkey
+
+[![Build Status](https://travis-ci.org/mreinstein/nexkey.svg?branch=master)](https://travis-ci.org/mreinstein/nexkey)
+
 javascript sdk for nexkey's awesome lock product
 
 
