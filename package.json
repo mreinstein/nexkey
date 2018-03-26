@@ -20,7 +20,7 @@
     "node": ">=8"
   },
   "dependencies": {
-    "node-fetch": "^2.1.1"
+    "node-fetch": "^2.1.2"
   },
   "devDependencies": {
     "proxyquire": "^2.0.1",

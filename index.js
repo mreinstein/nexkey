@@ -47,12 +47,12 @@ module.exports = function nexkey(options) {
   // @return Promise resolves to a javascript object
   const _post = async function(fnName, body) {
     const url = 'https://nexkey-beta.herokuapp.com/rest/functions/' + fnName
-    body.APINumber = '2'
 
     const result = await fetch(url, {
       method: 'POST',
       body: JSON.stringify(body),
       headers: {
+        'APINumber': '2.0',
         'Nexkey-Api-Secret': NEXKEY_API_SECRET,
         'Nexkey-Api-Key': NEXKEY_API_KEY,
         'Content-Type': 'application/json',
