@@ -2,11 +2,11 @@
 
 const fetch = require('node-fetch')
 
-// dashboard
-// https://nk-web-beta.herokuapp.com/apikeys
 
-// NOTE: if phone and email are listed for 2 users, prioritizes phone number?
-//       needs verification from nexkey
+// dashboard   https://nk-web-beta.herokuapp.com/apikeys
+
+// TODO: if phone and email are listed for 2 users, prioritizes phone number?
+//       this needs verification from nexkey.
 
 module.exports = function nexkey(options) {
   const { NEXKEY_API_SECRET, NEXKEY_API_KEY } = options
