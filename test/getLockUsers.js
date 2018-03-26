@@ -10,6 +10,7 @@ test('constructor', async function(t) {
   const nexkey = proxyquire('../', { 'node-fetch': function stubbedFetch(url, options) {
     t.equal(options.method, 'POST')
     t.deepEqual(options.headers, {
+      'Nexkey-Api-Version': '2.0.0',
       'Nexkey-Api-Secret': '123',
       'Nexkey-Api-Key': '456',
       'Content-Type': 'application/json'

@@ -52,7 +52,7 @@ module.exports = function nexkey(options) {
       method: 'POST',
       body: JSON.stringify(body),
       headers: {
-        'APINumber': '2.0',
+        'Nexkey-Api-Version': '2.0.0',
         'Nexkey-Api-Secret': NEXKEY_API_SECRET,
         'Nexkey-Api-Key': NEXKEY_API_KEY,
         'Content-Type': 'application/json',
