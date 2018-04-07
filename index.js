@@ -46,7 +46,7 @@ module.exports = function nexkey(options) {
 
   // @return Promise resolves to a javascript object
   const _post = async function(fnName, body) {
-    const url = 'https://nexkey-beta.herokuapp.com/rest/functions/' + fnName
+    const url = 'https://api.nexkey.com/rest/functions/' + fnName
 
     const result = await fetch(url, {
       method: 'POST',
