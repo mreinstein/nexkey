@@ -4,7 +4,7 @@ const proxyquire = require('proxyquire')
 const test       = require('tap').test
 
 
-const URL_PREFIX = 'https://nexkey-beta.herokuapp.com/rest/functions/'
+const URL_PREFIX = 'https://api.nexkey.com/rest/functions/'
 
 test('constructor', async function(t) {
   const nexkey = proxyquire('../', { 'node-fetch': function stubbedFetch(url, options) {
@@ -16,7 +16,7 @@ test('constructor', async function(t) {
       'Content-Type': 'application/json'
     })
 
-    t.ok(url.indexOf('https://nexkey-beta.herokuapp.com/rest/functions/') === 0)
+    t.ok(url.indexOf('https://api.nexkey.com/rest/functions/') === 0)
 
     return { json: function() { return {} }}
   } })

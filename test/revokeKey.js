@@ -4,7 +4,7 @@ const proxyquire = require('proxyquire')
 const test       = require('tap').test
 
 
-const URL_PREFIX = 'https://nexkey-beta.herokuapp.com/rest/functions/'
+const URL_PREFIX = 'https://api.nexkey.com/rest/functions/'
 
 
 test('basic', async function(t) {
