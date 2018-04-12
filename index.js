@@ -13,6 +13,8 @@ const fetch = require('node-fetch')
 module.exports = function nexkey(options) {
   const { NEXKEY_API_SECRET, NEXKEY_API_KEY } = options
 
+  const API_HOST = (options.ENVIRONMENT === 'STAGING') ? 'https://nexkey-beta.herokuapp.com' : 'https://api.nexkey.com'
+
 
   const signIn = async function(options) {
     const { userIdentifier, password } = options
@@ -48,7 +50,7 @@ module.exports = function nexkey(options) {
 
   // @return Promise resolves to a javascript object
   const _post = async function(fnName, body) {
-    const url = 'https://api.nexkey.com/rest/functions/' + fnName
+    const url = API_HOST + '/rest/functions/' + fnName
 
     const result = await fetch(url, {
       method: 'POST',

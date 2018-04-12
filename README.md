@@ -28,4 +28,23 @@ const result = await client.sendKey({ phone, email })
 ```
 
 
+## staging
+
+to access nexkey's staging API, pass an `ENVIRONMENT` property, like this:
+
+```javascript
+const client = nexkey({
+
+  ENVIRONMENT: 'STAGING',
+
+  // api credentials from nexkey beta
+  NEXKEY_API_SECRET: process.env.NEXKEY_API_KEY,
+  NEXKEY_API_KEY: process.env.NEXKEY_API_KEY
+})
+
+// use client normally here...
+
+```
+
+
 see https://api.nexkey.com/documentation for full details on the endpoints available.
