@@ -6,7 +6,7 @@ const test       = require('tap').test
 
 
 test('default to production', async function(t) {
-  const nexkey = proxyquire('../', { 'node-fetch': function stubbedFetch(url, options) {
+  const nexkey = proxyquire('../dist/nexkey.cjs.js', { 'node-fetch': function stubbedFetch(url, options) {
     t.equal(url, 'https://api.nexkey.com/rest/functions/signIn')
     return { json: function() { return {} }}
   } })
@@ -20,7 +20,7 @@ test('default to production', async function(t) {
 
 
 test('specify staging', async function(t) {
-  const nexkey = proxyquire('../', { 'node-fetch': function stubbedFetch(url, options) {
+  const nexkey = proxyquire('../dist/nexkey.cjs.js', { 'node-fetch': function stubbedFetch(url, options) {
     t.equal(url, 'https://nexkey-beta.herokuapp.com/rest/functions/signIn')
     return { json: function() { return {} }}
   } })

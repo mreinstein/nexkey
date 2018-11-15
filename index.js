@@ -1,6 +1,4 @@
-'use strict'
-
-const fetch = require('node-fetch')
+import fetch from 'node-fetch'
 
 
 // dashboard (production) https://nexkey-web.herokuapp.com/apikeys
@@ -10,7 +8,7 @@ const fetch = require('node-fetch')
 // the sendKey and revokeKey functions prioritize phone number and ignore
 // the email if a user is found with the phone number.
 
-module.exports = function nexkey(options) {
+export default function nexkey(options) {
   const { NEXKEY_API_SECRET, NEXKEY_API_KEY } = options
 
   const API_HOST = (options.ENVIRONMENT === 'STAGING') ? 'https://nexkey-beta.herokuapp.com' : 'https://api.nexkey.com'

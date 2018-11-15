@@ -8,7 +8,7 @@ const URL_PREFIX = 'https://api.nexkey.com/rest/functions/'
 
 
 test('basic', async function(t) {
-  const nexkey = proxyquire('../', { 'node-fetch': function stubbedFetch(url, options) {
+  const nexkey = proxyquire('../dist/nexkey.cjs.js', { 'node-fetch': function stubbedFetch(url, options) {
     t.equal(url, URL_PREFIX + 'sendKey')
     return { json: function() { return {} }}
   } })
