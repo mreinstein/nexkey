@@ -1,6 +1,6 @@
 {
   "name": "nexkey",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "javascript sdk for nexkey's awesome lock product",
   "main": "dist/nexkey.cjs.js",
   "module": "dist/nexkey.esm.js",
